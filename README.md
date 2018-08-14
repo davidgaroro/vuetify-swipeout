@@ -13,16 +13,16 @@ This project is a swipe out example built with [Vue], [Vuetify] and [Swiper].
 </p>
 
 ## Features
- - Vue CLI 3 + Webpack + vue-loader for single file Vue components
-	-  Hot-reload in development
-	-  Lint-on-save with [ESLint (Standard)](https://github.com/standard/eslint-config-standard)
-	-  Stylus CSS preprocessor
- - Vuetify a-la-carte (reduce project's size  in production)
- - Progressive Web App
-	- App manifest
-	- Service worker
-	- Workbox options - [Cache Google Fonts]
-	- 100/100 Lighthouse score
+- Vue CLI 3 + Webpack + vue-loader for single file Vue components
+  - Hot-reload in development
+  - Lint-on-save with [ESLint (Standard)](https://github.com/standard/eslint-config-standard)
+  - Stylus CSS preprocessor
+- Vuetify a-la-carte (reduce project's size  in production)
+- Progressive Web App
+  - App manifest
+  - Service worker
+  - Workbox options - [Cache Google Fonts]
+  - 100/100 Lighthouse score
 
 [Cache Google Fonts]: https://developers.google.com/web/tools/workbox/guides/common-recipes#google_fonts
 
@@ -67,30 +67,30 @@ npm install swiper --save
 ### Add v-list component and import custom component
 ```
 <template>
-	<v-list>
-	  <template v-for="(item, index) in items">
-	    <custom-component
-	      :id="`item-${item}`"
-	      @transitionEnd="customFunction"
-	      ...
-	    />
-	    <v-divider...></v-divider>
-	  </template>
-	</v-list>
+  <v-list>
+    <template v-for="(item, index) in items">
+      <custom-component
+        :id="`item-${item}`"
+        @transitionEnd="customFunction"
+        ...
+      />
+      <v-divider...></v-divider>
+    </template>
+  </v-list>
 </template>
 
 <script>
 import CustomComponent from '@/components/CustomComponent.vue'
 export  default {
-	components: {
-		'custom-component': CustomComponent
-	},
-	methods: {
-		transitionEnd () {
-			// Callback from SwipeoutItem after transition
-			...
-		}
-	}
+  components: {
+    'custom-component': CustomComponent
+  },
+  methods: {
+    transitionEnd () {
+      // Callback from SwipeoutItem after transition
+      ...
+    }
+  }
 }
 </script>
 ```
@@ -98,14 +98,14 @@ export  default {
 ### Create custom component, import and configure Swiper
 ```
 <template>
-	<div :id="id" class="swiper-container">
-		<div class="swiper-wrapper">
-			<v-list-tile class="swiper-slide error"></v-list-tile>
-			<v-list-tile class="swiper-slide">
-				<!-- custom content here -->
-			</v-list-tile>
-		</div>
-	</div>
+  <div :id="id" class="swiper-container">
+    <div class="swiper-wrapper">
+      <v-list-tile class="swiper-slide error"></v-list-tile>
+      <v-list-tile class="swiper-slide">
+        <!-- custom content here -->
+      </v-list-tile>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -113,27 +113,27 @@ import 'swiper/dist/css/swiper.min.css'
 import { Swiper } from 'swiper/dist/js/swiper.esm.js'
 
 export default {
-	props: ['id'],
-	mounted () {
-		const self = this
-		const el = '#' + this.id
+  props: ['id'],
+  mounted () {
+    const self = this
+    const el = '#' + this.id
 
-		// Initialize Swiper
-		const swiper = new Swiper(el, {
-			initialSlide: 1,
-			resistanceRatio: 0,
-			speed: 150
-		})
+    // Initialize Swiper
+    const swiper = new Swiper(el, {
+      initialSlide: 1,
+      resistanceRatio: 0,
+      speed: 150
+    })
 
-		// Event will be fired after transition
-		swiper.on('transitionEnd', function () {
-			if (this.activeIndex === 0) {
-				self.$emit('transitionEnd')
-				// Destroy slider instance and detach all events listeners
-				this.destroy()
-			}
-		})
-	}
+    // Event will be fired after transition
+    swiper.on('transitionEnd', function () {
+      if (this.activeIndex === 0) {
+        self.$emit('transitionEnd')
+        // Destroy slider instance and detach all events listeners
+        this.destroy()
+      }
+    })
+  }
 }
 </script>
 ```
