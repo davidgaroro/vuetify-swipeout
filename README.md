@@ -64,9 +64,11 @@ This project is a swipe out example built with [Vue], [Vuetify] and [Swiper].
 npm install swiper --save
 ```
 
-### Add v-list component and import custom component
-```
+### Add v-list component
+``` vue
+<!-- App.vue -->
 <template>
+  ...
   <v-list>
     <template v-for="(item, index) in items">
       <custom-component
@@ -77,6 +79,7 @@ npm install swiper --save
       <v-divider...></v-divider>
     </template>
   </v-list>
+  ...
 </template>
 
 <script>
@@ -95,8 +98,9 @@ export  default {
 </script>
 ```
 
-### Create custom component, import and configure Swiper
-```
+### Import and configure Swiper in the custom component
+``` vue
+<!-- CustomComponent.vue -->
 <template>
   <div :id="id" class="swiper-container">
     <div class="swiper-wrapper">
