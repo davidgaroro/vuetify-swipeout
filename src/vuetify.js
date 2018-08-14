@@ -1,5 +1,25 @@
 import Vue from 'vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+import 'vuetify/src/stylus/app.styl'
 
-Vue.use(Vuetify)
+import {
+  Vuetify,
+  VApp,
+  VBtn,
+  VCard,
+  VDivider,
+  VGrid,
+  VIcon,
+  VList
+} from 'vuetify'
+
+Vue.use(Vuetify, {
+  components: {
+    VApp,
+    VBtn,
+    VCard,
+    VDivider,
+    VGrid,
+    VIcon,
+    VList
+  }
+})
