@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "register-service-worker": "^1.7.2",
-    "swiper": "^4.5.1",
+    "swiper": "^6.5.1",
     "vue": "^2.6.14",
     "vuetify": "^1.5.24"
   },
