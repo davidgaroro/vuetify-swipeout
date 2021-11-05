@@ -6,8 +6,8 @@ This project is a swipe out example built with [Vue], [Vuetify] and [Swiper].
 [Vuetify]: https://vuetifyjs.com
 
 <p align="center">
-  <a href="https://vuetifyswipeout.davidgaroro.es" target="_blank" rel="noopener">
-    <img src="https://vuetifyswipeout.davidgaroro.es/github/app.gif"><br/>
+  <a href="https://davidgaroro.github.io/vuetify-swipeout/" target="_blank" rel="noopener">
+    <img src="https://i.imgur.com/2u9lUq4.gif"><br/>
     Live Demo
   </a>
 </p>
